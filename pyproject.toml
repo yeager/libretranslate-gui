@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "libretranslate-gui"
+version = "0.1.0"
+description = "GTK4/Adwaita translation assistant using LibreTranslate API"
+readme = "README.md"
+license = {text = "GPL-3.0-or-later"}
+requires-python = ">=3.10"
+authors = [{name = "Daniel Nylander", email = "daniel@danielnylander.se"}]
+keywords = ["translation", "libretranslate", "gtk4", "adwaita", "l10n"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: X11 Applications :: GTK",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Programming Language :: Python :: 3",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = ["PyGObject>=3.42"]
+
+[project.urls]
+Homepage = "https://github.com/yeager/libretranslate-gui"
+Issues = "https://github.com/yeager/libretranslate-gui/issues"
+
+[project.gui-scripts]
+libretranslate-gui = "libretranslate_gui.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

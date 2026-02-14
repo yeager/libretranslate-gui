@@ -1,0 +1,12 @@
+Package: libretranslate-gui
+Version: 0.1.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3 (>= 3.10), python3-gi, gir1.2-gtk-4.0, gir1.2-adw-1
+Maintainer: Daniel Nylander <daniel@danielnylander.se>
+Homepage: https://github.com/yeager/libretranslate-gui
+Description: GTK4/Adwaita translation assistant using LibreTranslate API
+ A desktop application for translating text using the LibreTranslate API.
+ Supports live translation, batch mode, .po/.ts file translation suggestions,
+ configurable server URL, translation history, and clipboard integration.

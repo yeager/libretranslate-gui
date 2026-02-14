@@ -1,0 +1,83 @@
+# Swedish translation for LibreTranslate Assistant
+# Copyright (C) 2024 Daniel Nylander
+# This file is distributed under the same license as the libretranslate-gui package.
+# Daniel Nylander <daniel@danielnylander.se>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libretranslate-gui 0.1.0\n"
+"Report-Msgid-Bugs-To: daniel@danielnylander.se\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0100\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "LibreTranslate Assistant"
+msgstr "LibreTranslate-assistent"
+
+msgid "Settings"
+msgstr "Inställningar"
+
+msgid "History"
+msgstr "Historik"
+
+msgid "Open .po/.ts file"
+msgstr "Öppna .po/.ts-fil"
+
+msgid "From:"
+msgstr "Från:"
+
+msgid "To:"
+msgstr "Till:"
+
+msgid "Swap languages"
+msgstr "Byt språk"
+
+msgid "Source Text"
+msgstr "Källtext"
+
+msgid "Translation"
+msgstr "Översättning"
+
+msgid "Copy translation"
+msgstr "Kopiera översättning"
+
+msgid "Translate"
+msgstr "Översätt"
+
+msgid "Ready"
+msgstr "Redo"
+
+msgid "Translating…"
+msgstr "Översätter…"
+
+msgid "Copied to clipboard"
+msgstr "Kopierat till urklipp"
+
+msgid "No history yet"
+msgstr "Ingen historik ännu"
+
+msgid "Translation History"
+msgstr "Översättningshistorik"
+
+msgid "Clear"
+msgstr "Rensa"
+
+msgid "Server"
+msgstr "Server"
+
+msgid "Server URL"
+msgstr "Server-URL"
+
+msgid "API Key (optional)"
+msgstr "API-nyckel (valfritt)"
+
+msgid "Translate All"
+msgstr "Översätt alla"
+
+msgid "No untranslated strings found"
+msgstr "Inga oöversatta strängar hittades"

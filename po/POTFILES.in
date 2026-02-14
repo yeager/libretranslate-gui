@@ -1,0 +1,3 @@
+src/libretranslate_gui/window.py
+src/libretranslate_gui/main.py
+data/se.danielnylander.LibreTranslateAssistant.desktop
