@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=LibreTranslate Assistant
+Name[sv]=LibreTranslate-assistent
+Comment=Translate text using LibreTranslate
+Comment[sv]=Översätt text med LibreTranslate
+Exec=libretranslate-gui
+Icon=se.danielnylander.LibreTranslateAssistant
+Terminal=false
+Type=Application
+Categories=Utility;TextTools;Translation;
+Keywords=translate;translation;libretranslate;l10n;
+StartupNotify=true

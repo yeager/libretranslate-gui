@@ -1,23 +1,7 @@
 #!/usr/bin/env python3
 """LibreTranslate Assistant – main entry point."""
 
-import gettext
-import locale
-import os
 import sys
-
-LOCALE_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "po", "locale")
-if not os.path.isdir(LOCALE_DIR):
-    LOCALE_DIR = "/usr/share/locale"
-
-try:
-    locale.setlocale(locale.LC_ALL, "")
-except locale.Error:
-    pass
-
-gettext.bindtextdomain("libretranslate-gui", LOCALE_DIR)
-gettext.textdomain("libretranslate-gui")
-
 import gi
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
