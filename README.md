@@ -56,3 +56,7 @@ To use a self-hosted instance, click the ⚙️ settings button and enter your s
 ## License
 
 GPL-3.0-or-later – Daniel Nylander <daniel@danielnylander.se>
+
+## Translation
+
+Translations are managed via [Transifex](https://app.transifex.com/danielnylander/libretranslate-gui/). See [po/README.md](po/README.md) for details.
