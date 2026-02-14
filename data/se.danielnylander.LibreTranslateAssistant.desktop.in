@@ -1,0 +1,10 @@
+[Desktop Entry]
+_Name=LibreTranslate Assistant
+_Comment=Translate text using LibreTranslate
+Exec=libretranslate-gui
+Icon=se.danielnylander.LibreTranslateAssistant
+Terminal=false
+Type=Application
+Categories=Utility;TextTools;Translation;
+_Keywords=translate;translation;libretranslate;l10n;
+StartupNotify=true
