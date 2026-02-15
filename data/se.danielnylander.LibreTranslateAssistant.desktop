@@ -2,7 +2,6 @@
 Name=LibreTranslate Assistant
 Name[sv]=LibreTranslate-assistent
 Comment=Translate text using LibreTranslate
-Comment[sv]=Översätt text med LibreTranslate
 Exec=libretranslate-gui
 Icon=se.danielnylander.LibreTranslateAssistant
 Terminal=false
