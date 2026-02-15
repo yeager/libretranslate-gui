@@ -59,6 +59,14 @@ class LibreTranslateWindow(Adw.ApplicationWindow):
         header = Adw.HeaderBar()
 
         # Settings button
+        # App menu
+        app_menu = Gio.Menu()
+        about_section = Gio.Menu()
+        about_section.append(_("About"), "app.about")
+        app_menu.append_section(None, about_section)
+        menu_btn = Gtk.MenuButton(icon_name="open-menu-symbolic", menu_model=app_menu)
+        header.pack_end(menu_btn)
+
         settings_btn = Gtk.Button(icon_name="emblem-system-symbolic", tooltip_text=_("Settings"))
         settings_btn.connect("clicked", self._on_settings)
         header.pack_end(settings_btn)
