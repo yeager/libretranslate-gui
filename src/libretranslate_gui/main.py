@@ -55,6 +55,7 @@ class LibreTranslateApp(Adw.Application):
             license_type=Gtk.License.GPL_3_0,
             website="https://github.com/yeager/libretranslate-gui",
             issue_url="https://github.com/yeager/libretranslate-gui/issues",
+            translate_url="https://app.transifex.com/danielnylander/libretranslate-gui/",
             translator_credits="Daniel Nylander <daniel@danielnylander.se>",
             comments=_("Translation assistant powered by LibreTranslate"),
         )
