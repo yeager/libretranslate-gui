@@ -105,6 +105,8 @@ class LibreTranslateWindow(Adw.ApplicationWindow):
         # Paned: source | target
         paned = Gtk.Paned(orientation=Gtk.Orientation.HORIZONTAL)
         paned.set_vexpand(True)
+        paned.set_shrink_start_child(False)
+        paned.set_shrink_end_child(False)
 
         # Source text
         source_frame = Gtk.Frame()
@@ -113,9 +115,19 @@ class LibreTranslateWindow(Adw.ApplicationWindow):
         source_box.set_margin_bottom(8)
         source_box.set_margin_start(8)
         source_box.set_margin_end(8)
+
+        source_header = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=8)
         source_label = Gtk.Label(label=_("Source Text"))
         source_label.add_css_class("heading")
-        source_box.append(source_label)
+        source_label.set_hexpand(True)
+        source_label.set_halign(Gtk.Align.START)
+        source_header.append(source_label)
+
+        clear_btn = Gtk.Button(icon_name="edit-clear-symbolic", tooltip_text=_("Clear"))
+        clear_btn.add_css_class("flat")
+        clear_btn.connect("clicked", lambda b: self.source_view.get_buffer().set_text(""))
+        source_header.append(clear_btn)
+        source_box.append(source_header)
 
         source_scroll = Gtk.ScrolledWindow()
         source_scroll.set_vexpand(True)
@@ -146,6 +158,7 @@ class LibreTranslateWindow(Adw.ApplicationWindow):
         target_header.append(target_label)
 
         copy_btn = Gtk.Button(icon_name="edit-copy-symbolic", tooltip_text=_("Copy translation"))
+        copy_btn.add_css_class("flat")
         copy_btn.connect("clicked", self._on_copy)
         target_header.append(copy_btn)
         target_box.append(target_header)
@@ -163,7 +176,6 @@ class LibreTranslateWindow(Adw.ApplicationWindow):
         target_box.append(target_scroll)
         target_frame.set_child(target_box)
         paned.set_end_child(target_frame)
-        paned.set_position(420)
 
         content.append(paned)
 
