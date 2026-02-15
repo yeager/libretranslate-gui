@@ -67,6 +67,12 @@ class LibreTranslateWindow(Adw.ApplicationWindow):
         menu_btn = Gtk.MenuButton(icon_name="open-menu-symbolic", menu_model=app_menu)
         header.pack_end(menu_btn)
 
+        # Theme toggle
+        self._theme_btn = Gtk.Button(icon_name="weather-clear-night-symbolic",
+                                     tooltip_text="Toggle dark/light theme")
+        self._theme_btn.connect("clicked", self._on_theme_toggle)
+        header.pack_end(self._theme_btn)
+
         settings_btn = Gtk.Button(icon_name="emblem-system-symbolic", tooltip_text=_("Settings"))
         settings_btn.connect("clicked", self._on_settings)
         header.pack_end(settings_btn)
@@ -208,11 +214,18 @@ class LibreTranslateWindow(Adw.ApplicationWindow):
         content.append(self.status_label)
 
         main_box.append(content)
+        # Status bar
+        self._status_bar = Gtk.Label(label="", halign=Gtk.Align.START,
+                                     margin_start=12, margin_end=12, margin_bottom=4)
+        self._status_bar.add_css_class("dim-label")
+        self._status_bar.add_css_class("caption")
+        main_box.append(self._status_bar)
         self.set_content(main_box)
 
     # --- Language handling ---
 
     def _on_languages_loaded(self, langs, err):
+        self._update_status_bar()
         GLib.idle_add(self._update_language_combos, langs, err)
 
     def _update_language_combos(self, langs, err):
@@ -439,6 +452,7 @@ class LibreTranslateWindow(Adw.ApplicationWindow):
     def _translate_po_entries(self, rows_data, src, tgt, btn):
         btn.set_sensitive(False)
         import threading
+from datetime import datetime as _dt_now
         def _work():
             for row, entry in rows_data:
                 try:
@@ -448,3 +462,15 @@ class LibreTranslateWindow(Adw.ApplicationWindow):
                     GLib.idle_add(row.set_subtitle, f"Error: {e}")
             GLib.idle_add(btn.set_sensitive, True)
         threading.Thread(target=_work, daemon=True).start()
+
+    def _on_theme_toggle(self, _btn):
+        sm = Adw.StyleManager.get_default()
+        if sm.get_color_scheme() == Adw.ColorScheme.FORCE_DARK:
+            sm.set_color_scheme(Adw.ColorScheme.FORCE_LIGHT)
+            self._theme_btn.set_icon_name("weather-clear-night-symbolic")
+        else:
+            sm.set_color_scheme(Adw.ColorScheme.FORCE_DARK)
+            self._theme_btn.set_icon_name("weather-clear-symbolic")
+
+    def _update_status_bar(self):
+        self._status_bar.set_text("Last updated: " + _dt_now.now().strftime("%Y-%m-%d %H:%M"))
