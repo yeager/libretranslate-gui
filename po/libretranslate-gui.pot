@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Daniel Nylander
-# This file is distributed under the same license as the libretranslate-gui package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: libretranslate-gui\n"
-"Report-Msgid-Bugs-To: daniel@danielnylander.se\n"
-"POT-Creation-Date: 2026-02-15 10:58+0100\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-16 17:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/libretranslate_gui/window.py:39 src/libretranslate_gui/main.py:49
+#: src/libretranslate_gui/window.py:39 src/libretranslate_gui/main.py:74
 msgid "LibreTranslate Assistant"
 msgstr ""
 
@@ -25,144 +25,136 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:70 src/libretranslate_gui/window.py:288
+#: src/libretranslate_gui/window.py:76 src/libretranslate_gui/window.py:301
 msgid "Settings"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:75
+#: src/libretranslate_gui/window.py:81
 msgid "History"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:80
+#: src/libretranslate_gui/window.py:86
 msgid "Open .po/.ts file"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:100
+#: src/libretranslate_gui/window.py:106
 msgid "Source language"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:101
+#: src/libretranslate_gui/window.py:107
 msgid "Target language"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:103
+#: src/libretranslate_gui/window.py:109
 msgid "Swap languages"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:106
+#: src/libretranslate_gui/window.py:112
 msgid "From:"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:109
+#: src/libretranslate_gui/window.py:115
 msgid "To:"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:128
+#: src/libretranslate_gui/window.py:134
 msgid "Source Text"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:134 src/libretranslate_gui/window.py:333
+#: src/libretranslate_gui/window.py:140 src/libretranslate_gui/window.py:346
 msgid "Clear"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:162
+#: src/libretranslate_gui/window.py:168
 msgid "Translation"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:168
+#: src/libretranslate_gui/window.py:174
 msgid "Copy translation"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:193
+#: src/libretranslate_gui/window.py:199
 msgid "Translate"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:205
+#: src/libretranslate_gui/window.py:211
 msgid "Ready"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:220
+#: src/libretranslate_gui/window.py:233
 #, python-format
 msgid "Could not load languages: %s"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:236
+#: src/libretranslate_gui/window.py:249
 #, python-format
 msgid "Loaded %d languages"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:256
+#: src/libretranslate_gui/window.py:269
 msgid "Translating…"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:264
+#: src/libretranslate_gui/window.py:277
 #, python-format
 msgid "Error: %s"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:267
+#: src/libretranslate_gui/window.py:280
 #, python-format
 msgid "Done – %s → %s"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:276
+#: src/libretranslate_gui/window.py:289
 msgid "Copied to clipboard"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:291
+#: src/libretranslate_gui/window.py:304
 msgid "Server"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:293
+#: src/libretranslate_gui/window.py:306
 msgid "Server URL"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:297
+#: src/libretranslate_gui/window.py:310
 msgid "API Key (optional)"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:324
+#: src/libretranslate_gui/window.py:337
 msgid "No history yet"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:328
+#: src/libretranslate_gui/window.py:341
 msgid "Translation History"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:373
+#: src/libretranslate_gui/window.py:386
 msgid "Translation files (*.po, *.ts)"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:392
+#: src/libretranslate_gui/window.py:405
 #, python-format
 msgid "Error parsing file: %s"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:396
+#: src/libretranslate_gui/window.py:409
 msgid "No untranslated strings found"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:402
+#: src/libretranslate_gui/window.py:415
 #, python-format
 msgid "Untranslated strings – %s"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:407
+#: src/libretranslate_gui/window.py:420
 msgid "Translate All"
 msgstr ""
 
-#: src/libretranslate_gui/window.py:424
+#: src/libretranslate_gui/window.py:437
 msgid "Click Translate All to get suggestions"
 msgstr ""
 
-#: src/libretranslate_gui/main.py:60
+#: src/libretranslate_gui/main.py:85
 msgid "Translation assistant powered by LibreTranslate"
-msgstr ""
-
-#: libretranslate-gui/data/se.danielnylander.LibreTranslateAssistant.desktop.in
-msgid "Translate text using LibreTranslate"
-msgstr ""
-
-#: libretranslate-gui/data/se.danielnylander.LibreTranslateAssistant.desktop.in
-msgid "translate;translation;libretranslate;l10n;"
 msgstr ""
