@@ -12,27 +12,77 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
-      - name: Install gettext
+      - name: Install tools
         run: sudo apt-get install -y gettext
 
-      - name: Generate translated .desktop file
+      - name: Pull translations
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
         run: |
-          python3 desktop-merge.py data/se.danielnylander.LibreTranslateAssistant.desktop.in po/ data/se.danielnylander.LibreTranslateAssistant.desktop
+          curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash
+          sudo mv tx /usr/local/bin/
+          tx pull -a --force --minimum-perc 10 || true
 
-      - name: Install build deps
-        run: pip install build
+      - name: Compile translations
+        run: |
+          for po in po/*.po; do
+            [ -f "$po" ] || continue
+            lang=$(basename "$po" .po)
+            mkdir -p locale/$lang/LC_MESSAGES
+            msgfmt -o locale/$lang/LC_MESSAGES/libretranslate-gui.mo "$po"
+          done
 
-      - name: Build sdist and wheel
-        run: python -m build
+      - name: Generate translated .desktop file
+        run: python3 desktop-merge.py data/se.danielnylander.LibreTranslateAssistant.desktop.in po/ data/se.danielnylander.LibreTranslateAssistant.desktop
 
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: dist/*
-          generate_release_notes: true
+      - name: Build .deb
+        run: |
+          VERSION=${GITHUB_REF_NAME#v}
+          PKG=$(mktemp -d)
+          mkdir -p $PKG/usr/lib/python3/dist-packages/libretranslate_gui
+          mkdir -p $PKG/usr/bin
+          mkdir -p $PKG/usr/share/applications
+          mkdir -p $PKG/usr/share/icons/hicolor/scalable/apps
+          mkdir -p $PKG/DEBIAN
+
+          cp src/libretranslate_gui/*.py $PKG/usr/lib/python3/dist-packages/libretranslate_gui/
+
+          for mo in locale/*/LC_MESSAGES/libretranslate-gui.mo; do
+            [ -f "$mo" ] || continue
+            lang=$(echo "$mo" | cut -d/ -f2)
+            mkdir -p $PKG/usr/share/locale/$lang/LC_MESSAGES
+            cp "$mo" $PKG/usr/share/locale/$lang/LC_MESSAGES/
+          done
+
+          cp data/*.desktop $PKG/usr/share/applications/
+          cp data/icons/*.svg $PKG/usr/share/icons/hicolor/scalable/apps/ 2>/dev/null || true
+
+          printf '#!/usr/bin/env python3\nfrom libretranslate_gui.main import main\nmain()\n' > $PKG/usr/bin/libretranslate-gui
+          chmod +x $PKG/usr/bin/libretranslate-gui
+
+          cat > $PKG/DEBIAN/control << EOF
+          Package: libretranslate-gui
+          Version: ${VERSION}
+          Section: devel
+          Priority: optional
+          Architecture: all
+          Depends: python3 (>= 3.10), python3-gi, gir1.2-gtk-4.0, gir1.2-adw-1
+          Maintainer: Daniel Nylander <daniel@danielnylander.se>
+          Homepage: https://github.com/yeager/libretranslate-gui
+          Description: LibreTranslate assistant with GTK4 interface
+           GTK4/Adwaita frontend for LibreTranslate machine translation API.
+          EOF
+          sed -i 's/^          //' $PKG/DEBIAN/control
+
+          dpkg-deb --root-owner-group --build $PKG libretranslate-gui_${VERSION}_all.deb
+
+      - name: Upload to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=${GITHUB_REF_NAME#v}
+          gh release upload $GITHUB_REF_NAME libretranslate-gui_${VERSION}_all.deb --clobber || \
+          gh release create $GITHUB_REF_NAME libretranslate-gui_${VERSION}_all.deb --title "$GITHUB_REF_NAME" --generate-notes
