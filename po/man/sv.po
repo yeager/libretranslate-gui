@@ -25,7 +25,7 @@ msgstr ""
 #: data/man/libretranslate-gui.1:1
 #, no-wrap
 msgid "LIBRETRANSLATE-GUI"
-msgstr ""
+msgstr "LIBRETRANSLATE-GUI"
 
 #. type: TH
 #: data/man/libretranslate-gui.1:1
@@ -43,7 +43,7 @@ msgstr "Daniel Nylander"
 #: data/man/libretranslate-gui.1:1
 #, no-wrap
 msgid "LibreTranslate GUI Manual"
-msgstr ""
+msgstr "Manual för LibreTranslate GUI"
 
 #. type: SH
 #: data/man/libretranslate-gui.1:2
@@ -55,6 +55,7 @@ msgstr "NAMN"
 #: data/man/libretranslate-gui.1:4
 msgid "libretranslate-gui - Translation assistant using LibreTranslate"
 msgstr ""
+"libretranslate-gui - Översättningsassistent som använder LibreTranslate"
 
 #. type: SH
 #: data/man/libretranslate-gui.1:4
@@ -65,7 +66,7 @@ msgstr "SYNOPSIS"
 #. type: Plain text
 #: data/man/libretranslate-gui.1:6
 msgid "B<libretranslate-gui>"
-msgstr ""
+msgstr "B<libretranslate-gui>"
 
 #. type: SH
 #: data/man/libretranslate-gui.1:6
@@ -82,6 +83,11 @@ msgid ""
 "configurable server support, API key authentication, translation history, "
 "and clipboard integration."
 msgstr ""
+"B<libretranslate-gui> är ett översättningsverktyg för GTK4/Adwaita som drivs "
+"av LibreTranslate/Lingva. Funktionerna inkluderar direktöversättning, "
+"automatiskt ifyllda språkväljare, massöversättning, förslag på översättning "
+"av PO/TS-filer, konfigurerbart serverstöd, API-nyckelautentisering, "
+"översättningshistorik och integrering med urklipp."
 
 #. type: SH
 #: data/man/libretranslate-gui.1:8
@@ -93,12 +99,12 @@ msgstr "FLAGGOR"
 #: data/man/libretranslate-gui.1:9
 #, no-wrap
 msgid "B<--help>"
-msgstr ""
+msgstr "B<--help>"
 
 #. type: Plain text
 #: data/man/libretranslate-gui.1:12
 msgid "Show help message and exit."
-msgstr ""
+msgstr "Visa hjälpmeddelande och avsluta."
 
 #. type: SH
 #: data/man/libretranslate-gui.1:12
@@ -110,7 +116,7 @@ msgstr "FILER"
 #: data/man/libretranslate-gui.1:13
 #, no-wrap
 msgid "I<~/.config/libretranslate-gui/>"
-msgstr ""
+msgstr "I<~/.config/libretranslate-gui/>"
 
 #. type: Plain text
 #: data/man/libretranslate-gui.1:16
@@ -121,7 +127,7 @@ msgstr "Konfigurationsfiler."
 #: data/man/libretranslate-gui.1:16
 #, no-wrap
 msgid "I<~/.cache/libretranslate-gui/>"
-msgstr ""
+msgstr "I<~/.cache/libretranslate-gui/>"
 
 #. type: Plain text
 #: data/man/libretranslate-gui.1:19
@@ -138,6 +144,7 @@ msgstr "BUGGAR"
 #: data/man/libretranslate-gui.1:21
 msgid "Report bugs at https://github.com/yeager/libretranslate-gui/issues"
 msgstr ""
+"Rapportera buggar på https://github.com/yeager/libretranslate-gui/issues"
 
 #. type: SH
 #: data/man/libretranslate-gui.1:21
@@ -159,4 +166,4 @@ msgstr "SE ÄVEN"
 #. type: Plain text
 #: data/man/libretranslate-gui.1:24
 msgid "Project homepage: https://github.com/yeager/libretranslate-gui"
-msgstr ""
+msgstr "Projektets webbsida: https://github.com/yeager/libretranslate-gui"
