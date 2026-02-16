@@ -70,8 +70,7 @@ class LibreTranslateApp(Adw.Application):
         win.present()
 
     def _on_about(self, *_args):
-        about = Adw.AboutWindow(
-            transient_for=self.props.active_window,
+        about = Adw.AboutDialog(
             application_name=_("LibreTranslate Assistant"),
             application_icon="libretranslate-gui",
             version="0.2.2",
@@ -85,7 +84,7 @@ class LibreTranslateApp(Adw.Application):
             translator_credits="Daniel Nylander <daniel@danielnylander.se>",
             comments=_("Translation assistant powered by LibreTranslate"),
         )
-        about.present()
+        about.present(self.props.active_window)
 
 def main():
     app = LibreTranslateApp()
