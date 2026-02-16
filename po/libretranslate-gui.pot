@@ -158,3 +158,11 @@ msgstr ""
 #: src/libretranslate_gui/main.py:60
 msgid "Translation assistant powered by LibreTranslate"
 msgstr ""
+
+#: libretranslate-gui/data/se.danielnylander.LibreTranslateAssistant.desktop.in
+msgid "Translate text using LibreTranslate"
+msgstr ""
+
+#: libretranslate-gui/data/se.danielnylander.LibreTranslateAssistant.desktop.in
+msgid "translate;translation;libretranslate;l10n;"
+msgstr ""

@@ -18,6 +18,13 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install gettext
+        run: sudo apt-get install -y gettext
+
+      - name: Generate translated .desktop file
+        run: |
+          python3 desktop-merge.py data/se.danielnylander.LibreTranslateAssistant.desktop.in po/ data/se.danielnylander.LibreTranslateAssistant.desktop
+
       - name: Install build deps
         run: pip install build
 

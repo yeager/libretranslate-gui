@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=LibreTranslate Assistant
+Name[sv]=LibreTranslate-assistent
 Comment=Translate text using LibreTranslate
 Exec=libretranslate-gui
 Icon=se.danielnylander.LibreTranslateAssistant
