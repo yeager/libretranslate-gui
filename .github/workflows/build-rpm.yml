@@ -1,0 +1,113 @@
+name: Build RPM
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-rpm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install RPM tools
+        run: sudo apt-get update && sudo apt-get install -y rpm
+
+      - name: Get version
+        id: version
+        run: echo "version=$(grep -oP '__version__ = "\K[^"]+' src/libretranslate_gui/__init__.py)" >> $GITHUB_OUTPUT
+
+      - name: Setup RPM build
+        run: |
+          mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+          VERSION=${{ steps.version.outputs.version }}
+          DIR=libretranslate-gui-$VERSION
+          mkdir -p $DIR/{libretranslate_gui,data/icons,data/man,po/sv/LC_MESSAGES}
+          cp src/libretranslate_gui/*.py $DIR/libretranslate_gui/
+          cp data/se.danielnylander.LibreTranslateAssistant.desktop $DIR/data/
+          cp data/icons/se.danielnylander.LibreTranslateAssistant.svg $DIR/data/icons/
+          cp data/man/libretranslate-gui.1 $DIR/data/man/
+          cp LICENSE $DIR/
+          [ -f po/sv/LC_MESSAGES/libretranslate-gui.mo ] && cp po/sv/LC_MESSAGES/libretranslate-gui.mo $DIR/po/sv/LC_MESSAGES/
+          tar czf ~/rpmbuild/SOURCES/$DIR.tar.gz $DIR
+
+      - name: Create spec file
+        run: |
+          cat > ~/rpmbuild/SPECS/libretranslate-gui.spec << 'SPEC'
+          Name:           libretranslate-gui
+          Version:        VERSION_PLACEHOLDER
+          Release:        1
+          Summary:        GTK4/Adwaita translation assistant using LibreTranslate API
+          License:        GPL-3.0-or-later
+          URL:            https://github.com/yeager/libretranslate-gui
+          Source0:        %{name}-%{version}.tar.gz
+          BuildArch:      noarch
+          Requires:       python3 >= 3.9
+          Requires:       python3-gobject
+          Requires:       gtk4
+          Requires:       libadwaita
+
+          %description
+          A GTK4/Adwaita desktop application for translating text using the
+          LibreTranslate API. Supports live translation, batch mode, PO/TS file
+          support, configurable server URL, translation history, and clipboard
+          integration.
+
+          %prep
+          %setup -q
+
+          %install
+          mkdir -p %{buildroot}%{_datadir}/libretranslate-gui/libretranslate_gui
+          cp libretranslate_gui/*.py %{buildroot}%{_datadir}/libretranslate-gui/libretranslate_gui/
+
+          mkdir -p %{buildroot}%{_bindir}
+          cat > %{buildroot}%{_bindir}/libretranslate-gui << 'LAUNCHER'
+          #!/bin/bash
+          exec python3 -c "import sys; sys.path.insert(0, '/usr/share/libretranslate-gui'); from libretranslate_gui.main import main; main()" "$@"
+          LAUNCHER
+          chmod 755 %{buildroot}%{_bindir}/libretranslate-gui
+
+          mkdir -p %{buildroot}%{_datadir}/applications
+          cp data/se.danielnylander.LibreTranslateAssistant.desktop %{buildroot}%{_datadir}/applications/
+
+          mkdir -p %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
+          cp data/icons/se.danielnylander.LibreTranslateAssistant.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/
+
+          mkdir -p %{buildroot}%{_mandir}/man1
+          cp data/man/libretranslate-gui.1 %{buildroot}%{_mandir}/man1/
+
+          mkdir -p %{buildroot}%{_datadir}/locale/sv/LC_MESSAGES
+          [ -f po/sv/LC_MESSAGES/libretranslate-gui.mo ] && cp po/sv/LC_MESSAGES/libretranslate-gui.mo %{buildroot}%{_datadir}/locale/sv/LC_MESSAGES/
+
+          %files
+          %license LICENSE
+          %{_bindir}/libretranslate-gui
+          %{_datadir}/libretranslate-gui/libretranslate_gui/__init__.py
+          %{_datadir}/libretranslate-gui/libretranslate_gui/api.py
+          %{_datadir}/libretranslate-gui/libretranslate_gui/history.py
+          %{_datadir}/libretranslate-gui/libretranslate_gui/main.py
+          %{_datadir}/libretranslate-gui/libretranslate_gui/po_parser.py
+          %{_datadir}/libretranslate-gui/libretranslate_gui/window.py
+          %{_datadir}/applications/se.danielnylander.LibreTranslateAssistant.desktop
+          %{_datadir}/icons/hicolor/scalable/apps/se.danielnylander.LibreTranslateAssistant.svg
+          %{_mandir}/man1/libretranslate-gui.1*
+          %{_datadir}/locale/sv/LC_MESSAGES/libretranslate-gui.mo
+          SPEC
+          sed -i "s/VERSION_PLACEHOLDER/${{ steps.version.outputs.version }}/" ~/rpmbuild/SPECS/libretranslate-gui.spec
+
+      - name: Build RPM
+        run: rpmbuild -ba ~/rpmbuild/SPECS/libretranslate-gui.spec
+
+      - name: Upload RPM to release
+        if: github.event_name == 'release'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          gh release upload "v$VERSION" \
+            ~/rpmbuild/RPMS/noarch/libretranslate-gui-${VERSION}-1.noarch.rpm \
+            --clobber
