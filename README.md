@@ -2,7 +2,7 @@
 
 ## Screenshot
 
-![Ubuntu L10n](screenshots/main.png)
+![LibreTranslate GUI](screenshots/main.png)
 
 A GTK4/Adwaita translation assistant powered by LibreTranslate/Lingva.
 
