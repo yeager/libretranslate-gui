@@ -1,5 +1,9 @@
 # LibreTranslate Assistant
 
+## Screenshot
+
+![Ubuntu L10n](screenshots/main.png)
+
 A GTK4/Adwaita translation assistant powered by LibreTranslate/Lingva.
 
 ![Screenshot](data/screenshots/screenshot-01.png)
