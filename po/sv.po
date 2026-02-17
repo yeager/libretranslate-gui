@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Daniel Nylander
-# This file is distributed under the same license as the libretranslate-gui package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
@@ -9,9 +9,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: libretranslate-gui\n"
-"Report-Msgid-Bugs-To: daniel@danielnylander.se\n"
-"POT-Creation-Date: 2026-02-15 10:58+0100\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-16 17:15+0100\n"
 "PO-Revision-Date: 2026-02-14 17:11+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>, 2026\n"
 "Language-Team: Swedish (https://app.transifex.com/danielnylander/teams/304775/sv/)\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/libretranslate_gui/window.py:39 src/libretranslate_gui/main.py:49
+#: src/libretranslate_gui/window.py:39 src/libretranslate_gui/main.py:74
 msgid "LibreTranslate Assistant"
 msgstr "LibreTranslate-assistent"
 
@@ -29,136 +29,136 @@ msgstr "LibreTranslate-assistent"
 msgid "About"
 msgstr "Om"
 
-#: src/libretranslate_gui/window.py:70 src/libretranslate_gui/window.py:288
+#: src/libretranslate_gui/window.py:76 src/libretranslate_gui/window.py:301
 msgid "Settings"
 msgstr "Inställningar"
 
-#: src/libretranslate_gui/window.py:75
+#: src/libretranslate_gui/window.py:81
 msgid "History"
 msgstr "Historik"
 
-#: src/libretranslate_gui/window.py:80
+#: src/libretranslate_gui/window.py:86
 msgid "Open .po/.ts file"
 msgstr "Öppna .po/.ts-fil"
 
-#: src/libretranslate_gui/window.py:100
+#: src/libretranslate_gui/window.py:106
 msgid "Source language"
 msgstr "Källspråk"
 
-#: src/libretranslate_gui/window.py:101
+#: src/libretranslate_gui/window.py:107
 msgid "Target language"
 msgstr "Målspråk"
 
-#: src/libretranslate_gui/window.py:103
+#: src/libretranslate_gui/window.py:109
 msgid "Swap languages"
 msgstr "Växla språk"
 
-#: src/libretranslate_gui/window.py:106
+#: src/libretranslate_gui/window.py:112
 msgid "From:"
 msgstr "Från:"
 
-#: src/libretranslate_gui/window.py:109
+#: src/libretranslate_gui/window.py:115
 msgid "To:"
 msgstr "Till:"
 
-#: src/libretranslate_gui/window.py:128
+#: src/libretranslate_gui/window.py:134
 msgid "Source Text"
 msgstr "Källtext"
 
-#: src/libretranslate_gui/window.py:134 src/libretranslate_gui/window.py:333
+#: src/libretranslate_gui/window.py:140 src/libretranslate_gui/window.py:346
 msgid "Clear"
 msgstr "Töm"
 
-#: src/libretranslate_gui/window.py:162
+#: src/libretranslate_gui/window.py:168
 msgid "Translation"
 msgstr "Översättning"
 
-#: src/libretranslate_gui/window.py:168
+#: src/libretranslate_gui/window.py:174
 msgid "Copy translation"
 msgstr "Kopiera översättning"
 
-#: src/libretranslate_gui/window.py:193
+#: src/libretranslate_gui/window.py:199
 msgid "Translate"
 msgstr "Översätt"
 
-#: src/libretranslate_gui/window.py:205
+#: src/libretranslate_gui/window.py:211
 msgid "Ready"
 msgstr "Redo"
 
-#: src/libretranslate_gui/window.py:220
+#: src/libretranslate_gui/window.py:233
 #, python-format
 msgid "Could not load languages: %s"
 msgstr "Kunde inte läsa in språk: %s"
 
-#: src/libretranslate_gui/window.py:236
+#: src/libretranslate_gui/window.py:249
 #, python-format
 msgid "Loaded %d languages"
 msgstr "Läste in %d språk"
 
-#: src/libretranslate_gui/window.py:256
+#: src/libretranslate_gui/window.py:269
 msgid "Translating…"
 msgstr "Översätter…"
 
-#: src/libretranslate_gui/window.py:264
+#: src/libretranslate_gui/window.py:277
 #, python-format
 msgid "Error: %s"
 msgstr "Fel: %s"
 
-#: src/libretranslate_gui/window.py:267
+#: src/libretranslate_gui/window.py:280
 #, python-format
 msgid "Done – %s → %s"
 msgstr "Klar – %s → %s"
 
-#: src/libretranslate_gui/window.py:276
+#: src/libretranslate_gui/window.py:289
 msgid "Copied to clipboard"
 msgstr "Kopierat till urklipp"
 
-#: src/libretranslate_gui/window.py:291
+#: src/libretranslate_gui/window.py:304
 msgid "Server"
 msgstr "Server"
 
-#: src/libretranslate_gui/window.py:293
+#: src/libretranslate_gui/window.py:306
 msgid "Server URL"
 msgstr "Serverns URL"
 
-#: src/libretranslate_gui/window.py:297
+#: src/libretranslate_gui/window.py:310
 msgid "API Key (optional)"
 msgstr "API-nyckel (valfritt)"
 
-#: src/libretranslate_gui/window.py:324
+#: src/libretranslate_gui/window.py:337
 msgid "No history yet"
 msgstr "Ingen historik ännu"
 
-#: src/libretranslate_gui/window.py:328
+#: src/libretranslate_gui/window.py:341
 msgid "Translation History"
 msgstr "Översättningshistorik"
 
-#: src/libretranslate_gui/window.py:373
+#: src/libretranslate_gui/window.py:386
 msgid "Translation files (*.po, *.ts)"
 msgstr "Översättningsfiler (*.po, *.ts)"
 
-#: src/libretranslate_gui/window.py:392
+#: src/libretranslate_gui/window.py:405
 #, python-format
 msgid "Error parsing file: %s"
 msgstr "Fel vid tolkning av fil: %s"
 
-#: src/libretranslate_gui/window.py:396
+#: src/libretranslate_gui/window.py:409
 msgid "No untranslated strings found"
 msgstr "Inga icke-översatta strängar hittades"
 
-#: src/libretranslate_gui/window.py:402
+#: src/libretranslate_gui/window.py:415
 #, python-format
 msgid "Untranslated strings – %s"
 msgstr "Icke-översatta strängar – %s"
 
-#: src/libretranslate_gui/window.py:407
+#: src/libretranslate_gui/window.py:420
 msgid "Translate All"
 msgstr "Översätt alla"
 
-#: src/libretranslate_gui/window.py:424
+#: src/libretranslate_gui/window.py:437
 msgid "Click Translate All to get suggestions"
 msgstr "Klicka på Översätt alla för att få förslag"
 
-#: src/libretranslate_gui/main.py:60
+#: src/libretranslate_gui/main.py:85
 msgid "Translation assistant powered by LibreTranslate"
 msgstr "Översättningsassistent som drivs av LibreTranslate"
