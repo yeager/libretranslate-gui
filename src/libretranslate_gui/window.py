@@ -6,6 +6,7 @@ gi.require_version("Adw", "1")
 from gi.repository import Gtk, Adw, Gdk, Gio, GLib, Pango
 
 from libretranslate_gui.api import LibreTranslateAPI, DEFAULT_URL
+from datetime import datetime as _dt_now
 from libretranslate_gui.history import load_history, save_entry, clear_history
 from libretranslate_gui.po_parser import parse_file
 
@@ -452,7 +453,6 @@ class LibreTranslateWindow(Adw.ApplicationWindow):
     def _translate_po_entries(self, rows_data, src, tgt, btn):
         btn.set_sensitive(False)
         import threading
-from datetime import datetime as _dt_now
         def _work():
             for row, entry in rows_data:
                 try:
