@@ -80,10 +80,10 @@ class LibreTranslateApp(Adw.Application):
             license_type=Gtk.License.GPL_3_0,
             website="https://github.com/yeager/libretranslate-gui",
             issue_url="https://github.com/yeager/libretranslate-gui/issues",
-            translate_url="https://app.transifex.com/danielnylander/libretranslate-gui/",
             translator_credits=_("Translate this app: https://www.transifex.com/danielnylander/libretranslate-gui/"),
             comments=_("Translation assistant powered by LibreTranslate"),
         )
+        about.add_link(_("Help translate"), "https://app.transifex.com/danielnylander/libretranslate-gui/")
         about.present(self.props.active_window)
 
 def main():
