@@ -5,6 +5,7 @@ Exec=libretranslate-gui
 Icon=se.danielnylander.LibreTranslateAssistant
 Terminal=false
 Type=Application
+StartupWMClass=se.danielnylander.LibreTranslateAssistant
 Categories=Utility;TextTools;Translation;
 _Keywords=translate;translation;libretranslate;l10n;
 StartupNotify=true

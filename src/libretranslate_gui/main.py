@@ -31,6 +31,7 @@ class LibreTranslateApp(Adw.Application):
     def __init__(self):
         super().__init__(
             application_id="se.danielnylander.LibreTranslateAssistant",
+        GLib.set_application_name(_("LibreTranslate Assistant"))
             flags=Gio.ApplicationFlags.DEFAULT_FLAGS,
         )
         about_action = Gio.SimpleAction.new("about", None)
