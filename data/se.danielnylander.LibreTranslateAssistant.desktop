@@ -9,3 +9,4 @@ Type=Application
 Categories=Utility;TextTools;Translation;
 Keywords=translate;translation;libretranslate;l10n;
 StartupNotify=true
+StartupWMClass=se.danielnylander.LibreTranslateAssistant
